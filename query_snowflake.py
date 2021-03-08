@@ -14,7 +14,7 @@ cursor = snowflake_instance.set_session_parameters(
     role="SYSADMIN", warehouse="COMPUTE_WH"
     )
 create_db_films = snowflake_instance.run_sql(cursor, f"CREATE DATABASE IF NOT EXISTS FILMS_{os.environ.get('ENV', 'DEV')};")
-result = sunowflake_instance.run_sql(cursor, "SHOW DATABASES;")
+result = snowflake_instance.run_sql(cursor, "SHOW DATABASES;")
 df = snowflake_instance.fetch_dataframe_from_sql(cursor, "SHOW DATABASES;")
 print(df)
 
